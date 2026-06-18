@@ -1,308 +1,348 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8" />
+		<!-- 移动端标准视口 -->
 		<meta name="viewport"
 			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>Guangzhou Jiji Ji Technology Co., Ltd.</title>
 		<style>
+			/* 全局重置 */
 			* {
 				margin: 0;
 				padding: 0;
+				box-sizing: border-box;
 			}
 
+			body {
+				font-family: Arial, sans-serif;
+				line-height: 1.7;
+				color: #333;
+				overflow-x: hidden;
+			}
 
-			body {}
-
+			/* 顶部导航 固定悬浮 + 内容垂直居中 */
 			#daohang {
 				width: 100%;
 				height: 50px;
 				background-color: #26262A;
 				position: fixed;
 				top: 0;
+				left: 0;
 				color: aliceblue;
+				z-index: 999;
+				display: flex;
+				align-items: center;
+				/* 核心：全部内容上下居中 */
+				justify-content: space-between;
+				padding: 0 30px;
 			}
 
-			#gongsi {
-
-				padding-left: 100px;
-				width: 50%;
-				height: 100%;
+			/* 左侧logo+公司名称 */
+			.nav-left {
+				display: flex;
+				align-items: center;
+				gap: 12px;
 			}
 
-			#gongsi>div {
-				float: left;
-				padding-left: 30px;
+			.nav-left img {
+				width: 40px;
+				height: 40px;
+				object-fit: cover;
 			}
 
-			#gongsi>div:nth-child(2) {
-				transform: translateY(50%);
-			}
-
-			#gongsi img {
-				width: 50px;
-				height: 50px;
-			}
-
-			#gongsi_lianxi {
-				padding-right: 100px;
-				width: 50%;
-				height: 100%;
-				float: right;
+			/* 右侧联系信息 */
+			.nav-right {
 				text-align: right;
+				font-size: 14px;
 			}
 
-			/* --------- */
-			#lunbo {
-				/* border: 1px solid red; */
+			/* 轮播视频区域 */
+			#banner {
 				width: 100%;
 				height: 650px;
 				margin-top: 50px;
-
 			}
 
-			#lunbo>div {
-				height: 100%;
-				width: 100%;
-
-			}
-
-			video {
+			#banner video {
 				width: 100%;
 				height: 100%;
-
+				object-fit: cover;
+				display: block;
 			}
 
-			/* ------------------ */
-			#jianjie {
+			/* 公司简介板块 */
+			#about {
 				color: aliceblue;
-				background-image: url(./img/b1.png);
-				background-position: center;
-				background-repeat: no-repeat;
-				background-size: cover;
+				background: url(./img/b1.png) center/cover no-repeat;
+				padding: 70px 0;
 			}
 
-			#jianjie_1 {
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				/* 主轴居中 */
-				align-items: center;
-			}
-
-			#jianjie_1 h1 {
-				margin: 20px 0;
-			}
-
-			#jianjie_1>div {
-				padding: 0 20%;
-			}
-
-			#cahngfang {
-				color: aliceblue;
-				display: flex;
-				flex-direction: row;
-				justify-content: center;
-				/* 主轴居中 */
-				align-items: center;
-			}
-
-			#cahngfang img {
-				width: 100%;
-				height: 100%;
-			}
-
-			#cahngfang>div {
-				width: 40%;
-				margin: 20px;
-			}
-
-			/* ---------------------- */
-			#chanpin {
-				display: flex;
-				flex-direction: row;
-				justify-content: center;
-				/* 主轴居中 */
-				align-items: center;
-				/* 交叉轴居中 */
-			}
-
-			#chanpin>div {
-				width: 20%;
-				height: 300px;
-				margin: 20px;
-			}
-
-			#chanpin img {
-				width: 100%;
-				height: 100%;
-			}
-
-			#chejian,
-			#jiancebaogao {
-				display: flex;
-				flex-direction: row;
-				justify-content: center;
-				/* 主轴居中 */
-				align-items: center;
-				/* 交叉轴居中 */
-			}
-
-			#chejian>div {
-				width: 20%;
-				height: 300px;
-				margin: 20px;
-			}
-
-			#chejian img {
-				width: 100%;
-				height: 100%;
-			}
-
-			/* ---------------- */
-			.myh1 {
+			.about-top {
+				max-width: 1400px;
+				margin: 0 auto 60px;
+				padding: 0 15%;
 				text-align: center;
-				margin: 20px 0;
 			}
 
-			#jiao {
+			.about-top h1 {
+				font-size: 28px;
+				margin-bottom: 24px;
+			}
+
+			.about-bottom {
+				max-width: 1400px;
+				margin: 0 auto;
+				padding: 0 10%;
+				display: flex;
+				align-items: center;
+				gap: 40px;
+			}
+
+			.about-bottom .text {
+				width: 45%;
+			}
+
+			.about-bottom .img-box {
+				width: 45%;
+			}
+
+			.about-bottom img {
+				width: 100%;
+				height: auto;
+				display: block;
+			}
+
+			/* 产品/车间通用模块 */
+			.section-title {
+				text-align: center;
+				font-size: 26px;
+				margin: 50px 0 24px;
+			}
+
+			.img-row {
+				max-width: 1400px;
+				margin: 0 auto 40px;
+				padding: 0 20px;
+				display: flex;
+				gap: 20px;
+			}
+
+			.img-row .item {
+				flex: 1;
+				height: 300px;
+			}
+
+			.img-row img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				display: block;
+			}
+
+			/* 单独给检测报告模块重写样式 PC端自适应高度完整展示图片 */
+			.img-row.coa-row .item {
+				height: auto;
+			}
+			.img-row.coa-row img {
+				height: auto;
+				object-fit: contain;
+			}
+
+			/* 底部联系栏 */
+			#footer {
 				color: aliceblue;
-				width: 100%;
 			}
 
-			#jiao_a div {
-				margin: 0 10%;
-			}
-
-			#jiao_a {
-				padding: 20px 0;
-				width: 100%;
+			.footer-contact {
 				background-color: #383840;
+				padding: 45px 20px;
 				display: flex;
-				flex-direction: row;
 				justify-content: center;
-				/* 主轴居中 */
-				align-items: center;
-				/* 交叉轴居中 */
-
+				gap: 100px;
 			}
 
-			#jiao_b {
-				width: 100%;
+			.footer-contact h3 {
+				margin-bottom: 12px;
+			}
+
+			.footer-contact p {
+				margin: 6px 0;
+			}
+
+			.footer-copyright {
 				height: 40px;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				/* 主轴居中 */
-				align-items: center;
 				background-color: #26262A;
-				color: aliceblue;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 14px;
+			}
+
+
+			/* ====================== 移动端适配 768px 以下 ====================== */
+			@media screen and (max-width: 768px) {
+
+				/* 导航缩小适配 */
+				#daohang {
+					padding: 0 15px;
+				}
+
+				.nav-left img {
+					width: 32px;
+					height: 32px;
+				}
+
+				.nav-left span {
+					font-size: 13px;
+				}
+
+				.nav-right {
+					font-size: 12px;
+				}
+
+				/* 轮播高度降低 */
+				#banner {
+					height: 300px;
+				}
+
+				/* 简介区域 */
+				.about-top {
+					padding: 0 5%;
+				}
+
+				.about-top h1 {
+					font-size: 20px;
+				}
+
+				.about-bottom {
+					flex-direction: column;
+					padding: 0 5%;
+				}
+
+				.about-bottom .text,
+				.about-bottom .img-box {
+					width: 100%;
+				}
+
+				/* 图片一行一列 */
+				.img-row {
+					flex-direction: column;
+					padding: 0 5%;
+				}
+
+				.img-row .item {
+					height: 220px;
+				}
+				/* 移动端检测报告恢复固定高度裁剪 */
+				.img-row.coa-row .item {
+					height: 220px;
+				}
+				.img-row.coa-row img {
+					height: 100%;
+					object-fit: cover;
+				}
+
+				/* 底部联系方式竖排 */
+				.footer-contact {
+					flex-direction: column;
+					gap: 30px;
+					padding: 30px 5%;
+				}
 			}
 		</style>
 	</head>
 	<body>
+		<!-- 导航栏 -->
 		<div id="daohang">
-			<div>
-				<div id="gongsi">
-					<div><img src="./img/ic.png" alt="" /></div>
-					<div>Jiji Ji Technology Co., Ltd.</div>
-				</div>
-				<div id="gongsi_lianxi">
-					<div>Contact Hotline</div>
+			<div class="nav-left">
+				<img src="./img/ic.png" alt="Logo">
+				<span>Jiji Ji Technology Co., Ltd.</span>
+			</div>
+			<div class="nav-right">
+				<div>Contact Hotline</div>
+				<div><span>WhatsApp：</span>+85247112802</div>
+			</div>
+		</div>
 
-					<div><span>WhatsApp：</span>+85247112802</div>
+		<!-- 轮播视频 -->
+		<div id="banner">
+			<video src="./img/v1.mp4" autoplay loop muted playsinline></video>
+		</div>
+
+		<!-- 公司简介 -->
+		<div id="about">
+			<div class="about-top">
+				<h1>Guangzhou Jiji Ji Technology Co., Ltd. Company Profile</h1>
+				<p>Guangzhou Jiji Ji Technology Co., Ltd. is a professional local peptide biotechnology enterprise based
+					in Guangzhou. We focus on the R&D, synthesis and mass supply of various bioactive peptide molecules
+					for scientific research, pharmaceutical and cosmetic applications.
+					Equipped with an independent synthesis laboratory and standardized purification production
+					workshops, the company masters core solid-phase peptide synthesis technology.
+					We provide one-stop services including off-the-shelf peptide raw materials, custom peptide
+					synthesis, OEM repackaging, and complete quality inspection certificates.
+					Leveraging the logistics and industrial advantages of the Guangdong-Hong Kong-Macao Greater Bay
+					Area, our business covers the domestic market and global cross-border trade. With rigorous quality
+					control, flexible customization and stable supply capacity, we deliver reliable peptide solutions
+					for clients engaged in life science research and the general health industry.</p>
+			</div>
+			<div class="about-bottom">
+				<div class="text">
+					<p>Youte Biotechnology is a professional global supplier committed to providing high-quality
+						Semaglutide, Retatrutide,Cagrilintide and so on to customers around the world.With solid
+						industry experience and a strong export network, our products have been delivered to more than
+						80 countries and regions, including North America, Europe, Southeast Asia, Australia, Russia,
+						Africa, and the Middle East.We aim to support global importers, distributors, manufacturers, and
+						brand owners with reliable supply, competitive pricing, and professional trade services that
+						simplify the sourcing process and enhance business value.
+						We understand the challenges faced by overseas buyers when sourcing...</p>
+				</div>
+				<div class="img-box">
+					<img src="./img/cf.png" alt="Factory Workshop">
 				</div>
 			</div>
 		</div>
-		<div id="lunbo">
-			<div>
-				<video src="./img/v1.mp4" autoplay loop muted></video>
-			</div>
+
+		<!-- 产品样品 -->
+		<h2 class="section-title">Product Samples</h2>
+		<div class="img-row">
+			<div class="item"><img src="./img/p1.png" alt="Sample"></div>
+			<div class="item"><img src="./img/p2.png" alt="Sample"></div>
+			<div class="item"><img src="./img/p3.png" alt="Sample"></div>
+			<div class="item"><img src="./img/p4.png" alt="Sample"></div>
 		</div>
-		<div id="jianjie">
-			<div id="jianjie_1">
-				<h1>Guangzhou Jiji Ji Technology Co., Ltd.
-					Company Profile</h1>
+
+		<!-- 生产车间 -->
+		<h2 class="section-title">Manufacturing Workshop</h2>
+		<div class="img-row">
+			<div class="item"><img src="./img/c1.png" alt="Workshop"></div>
+			<div class="item"><img src="./img/c2.png" alt="Workshop"></div>
+			<div class="item"><img src="./img/c3.png" alt="Workshop"></div>
+			<div class="item"><img src="./img/c4.png" alt="Workshop"></div>
+		</div>
+
+		<!-- 产品包装 -->
+		<h2 class="section-title">Product Packaging</h2>
+		<div class="img-row">
+			<div class="item"><img src="./img/y1.jpeg" alt="Packaging"></div>
+			<div class="item"><img src="./img/y2.jpeg" alt="Packaging"></div>
+			<div class="item"><img src="./img/y5.jpeg" alt="Packaging"></div>
+			<div class="item"><img src="./img/y4.jpeg" alt="Packaging"></div>
+		</div>
+
+		<!-- 检测报告 COA 增加 coa-row 类名区分 -->
+		<h2 class="section-title">COA / Certificate of Analysis</h2>
+		<div class="img-row coa-row">
+			<div class="item"><img src="./img/g1.png" alt="COA"></div>
+			<div class="item"><img src="./img/g2.png" alt="COA"></div>
+		</div>
+
+		<!-- 底部联系与版权 -->
+		<div id="footer">
+			<div class="footer-contact">
 				<div>
-					<span>Guangzhou Jiji Ji Technology Co., Ltd. is a professional
-						local peptide biotechnology enterprise based in Guangzhou.
-						We focus on the R&D, synthesis and mass supply of various
-						bioactive peptide molecules for scientific research, pharmaceutical and cosmetic applications.
-						Equipped with an independent synthesis laboratory and standardized purification
-						production workshops, the company masters core solid-phase peptide synthesis technology.
-						We provide one-stop services including off-the-shelf peptide raw materials, custom peptide
-						synthesis, OEM repackaging, and complete quality inspection certificates.
-						Leveraging the logistics and industrial advantages of the Guangdong-Hong Kong-Macao Greater
-						Bay Area, our business covers the domestic market and global cross-border trade. With rigorous
-						quality control, flexible customization and stable supply capacity, we deliver reliable peptide
-						solutions for clients engaged in life science research and the general health industry.</span>
-				</div>
-			</div>
-
-			<div id="cahngfang">
-
-				<div>Youte Biotechnology is a professional global supplier committed to providing high-quality
-					Semaglutide, Retatrutide,Cagrilintide and so on to customers around the world.With solid industry
-					experience and a strong export network, our products have been delivered to more than 80 countries
-					and regions, including North America, Europe, Southeast Asia, Australia, Russia, Africa, and the
-					Middle East.We aim to support global importers, distributors, manufacturers, and brand owners with
-					reliable supply, competitive pricing, and professional trade services that simplify the sourcing
-					process and enhance business value.
-
-					We understand the challenges faced by overseas buyers when sourcing...</div>
-				<div><img src="./img/cf.png" alt="" /></div>
-			</div>
-
-		</div>
-
-
-
-		<div>
-
-			<div>
-				<h1 class="myh1">Product Samples</h1>
-				<div id="chanpin">
-					<div><img src="./img/p1.png" alt="" /></div>
-					<div><img src="./img/p2.png" alt="" /></div>
-					<div><img src="./img/p3.png" alt="" /></div>
-					<div><img src="./img/p4.png" alt="" /></div>
-				</div>
-			</div>
-
-			<div>
-				<h1 class="myh1">Manufacturing Workshop</h1>
-				<div id="chejian">
-					<div><img src="./img/c1.png" alt="" /></div>
-					<div><img src="./img/c2.png" alt="" /></div>
-					<div><img src="./img/c3.png" alt="" /></div>
-					<div><img src="./img/c4.png" alt="" /></div>
-				</div>
-			</div>
-
-			<div>
-				<h1 class="myh1">Product Packaging </h1>
-				<div id="chejian">
-					<div><img src="./img/y1.jpeg" alt="" /></div>
-					<div><img src="./img/y2.jpeg" alt="" /></div>
-					<div><img src="./img/y5.jpeg" alt="" /></div>
-					<div><img src="./img/y4.jpeg" alt="" /></div>
-				</div>
-			</div>
-			<div>
-				<h1 class="myh1">COA / Certificate of Analysis</h1>
-				<div id="jiancebaogao">
-					<div><img src="./img/g1.png" alt="" /></div>
-					<div><img src="./img/g2.png" alt="" /></div>
-				</div>
-			</div>
-		</div>
-
-
-
-		<div id="jiao">
-			<div id="jiao_a">
-				<div>
-					<h3>Contact Hotline</h3><span>WhatsApp</span>
+					<h3>Contact Hotline</h3>
+					<p>WhatsApp</p>
 					<p>+85247112802</p>
 					<p>+85244529122</p>
 					<p>+85270459153</p>
@@ -312,14 +352,14 @@
 					<p>+85270502606</p>
 				</div>
 				<div>
-					<h3>Email Address </h3>
+					<h3>Email</h3>
 					<p>-</p>
-					<h3>Official Website</h3>
+					<h3>Website Address</h3>
 					<p>https://jksdb.github.io/Jiji-Ji/</p>
 				</div>
 			</div>
-			<div id="jiao_b">
-				<span>Copyright © 2026 Jiji Biotechnology Co., Ltd. All Rights Reserved</span>
+			<div class="footer-copyright">
+				Copyright © 2026 Jiji Biotechnology Co., Ltd. All Rights Reserved
 			</div>
 		</div>
 	</body>
